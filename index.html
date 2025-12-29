@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Vietnamese Virtual Supermarket</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  background: #2d6cdf;
+  color: white;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.market {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.section {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.section:hover {
+  transform: translateY(-4px);
+}
+
+.section h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.item:hover {
+  background: #eef3ff;
+}
+
+.item span {
+  font-size: 16px;
+}
+
+.item small {
+  color: #666;
+}
+
+.shopping {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.shopping h3 {
+  margin-top: 0;
+}
+
+.shopping ul {
+  padding-left: 18px;
+}
+
+.shopping li {
+  margin-bottom: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🛒 Vietnamese Virtual Supermarket</h1>
+
+<div class="container">
+
+<div class="market">
+
+<div class="section">
+<h2>🥬 Rau củ</h2>
+<div class="item" onclick="add('Cà rốt')"><span>🥕 Cà rốt</span><small>Carrot</small></div>
+<div class="item" onclick="add('Cà chua')"><span>🍅 Cà chua</span><small>Tomato</small></div>
+<div class="item" onclick="add('Khoai tây')"><span>🥔 Khoai tây</span><small>Potato</small></div>
+<div class="item" onclick="add('Hành')"><span>🧅 Hành</span><small>Onion</small></div>
+<div class="item" onclick="add('Tỏi')"><span>🧄 Tỏi</span><small>Garlic</small></div>
+<div class="item" onclick="add('Rau xà lách')"><span>🥬 Rau xà lách</span><small>Lettuce</small></div>
+</div>
+
+<div class="section">
+<h2>🍎 Trái cây</h2>
+<div class="item" onclick="add('Táo')"><span>🍎 Táo</span><small>Apple</small></div>
+<div class="item" onclick="add('Chuối')"><span>🍌 Chuối</span><small>Banana</small></div>
+<div class="item" onclick="add('Cam')"><span>🍊 Cam</span><small>Orange</small></div>
+<div class="item" onclick="add('Xoài')"><span>🥭 Xoài</span><small>Mango</small></div>
+<div class="item" onclick="add('Nho')"><span>🍇 Nho</span><small>Grapes</small></div>
+</div>
+
+<div class="section">
+<h2>🍞 Bánh & tinh bột</h2>
+<div class="item" onclick="add('Bánh mì')"><span>🥖 Bánh mì</span><small>Bread</small></div>
+<div class="item" onclick="add('Bánh ngọt')"><span>🍰 Bánh ngọt</span><small>Cake</small></div>
+<div class="item" onclick="add('Bánh quy')"><span>🍪 Bánh quy</span><small>Cookies</small></div>
+<div class="item" onclick="add('Mì gói')"><span>🍜 Mì gói</span><small>Instant noodles</small></div>
+<div class="item" onclick="add('Gạo')"><span>🍚 Gạo</span><small>Rice</small></div>
+</div>
+
+<div class="section">
+<h2>🥛 Sữa & trứng</h2>
+<div class="item" onclick="add('Sữa')"><span>🥛 Sữa</span><small>Milk</small></div>
+<div class="item" onclick="add('Sữa chua')"><span>🍶 Sữa chua</span><small>Yogurt</small></div>
+<div class="item" onclick="add('Phô mai')"><span>🧀 Phô mai</span><small>Cheese</small></div>
+<div class="item" onclick="add('Trứng')"><span>🥚 Trứng</span><small>Eggs</small></div>
+</div>
+
+<div class="section">
+<h2>🥩 Thịt & cá</h2>
+<div class="item" onclick="add('Thịt heo')"><span>🐖 Thịt heo</span><small>Pork</small></div>
+<div class="item" onclick="add('Thịt gà')"><span>🐓 Thịt gà</span><small>Chicken</small></div>
+<div class="item" onclick="add('Thịt bò')"><span>🐄 Thịt bò</span><small>Beef</small></div>
+<div class="item" onclick="add('Cá')"><span>🐟 Cá</span><small>Fish</small></div>
+</div>
+
+<div class="section">
+<h2>🧂 Gia vị</h2>
+<div class="item" onclick="add('Muối')"><span>🧂 Muối</span><small>Salt</small></div>
+<div class="item" onclick="add('Đường')"><span>🍬 Đường</span><small>Sugar</small></div>
+<div class="item" onclick="add('Nước mắm')"><span>🥣 Nước mắm</span><small>Fish sauce</small></div>
+<div class="item" onclick="add('Dầu ăn')"><span>🛢️ Dầu ăn</span><small>Cooking oil</small></div>
+</div>
+
+<div class="section">
+<h2>🥤 Đồ uống</h2>
+<div class="item" onclick="add('Nước')"><span>💧 Nước</span><small>Water</small></div>
+<div class="item" onclick="add('Cà phê')"><span>☕ Cà phê</span><small>Coffee</small></div>
+<div class="item" onclick="add('Trà')"><span>🍵 Trà</span><small>Tea</small></div>
+<div class="item" onclick="add('Nước cam')"><span>🧃 Nước cam</span><small>Orange juice</small></div>
+<div class="item" onclick="add('Nước ngọt')"><span>🥤 Nước ngọt</span><small>Soft drink</small></div>
+</div>
+
+</div>
+
+<div class="shopping">
+<h3>📝 Shopping List</h3>
+<ul id="list"></ul>
+</div>
+
+</div>
+
+<script>
+function add(word) {
+  const li = document.createElement("li");
+  li.textContent = word;
+  document.getElementById("list").appendChild(li);
+}
+</script>
+
+</body>
+</html>
